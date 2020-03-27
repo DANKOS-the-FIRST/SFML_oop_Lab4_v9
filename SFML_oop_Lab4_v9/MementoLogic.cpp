@@ -3,18 +3,18 @@
 #include <fstream>
 
 //#include "States.h"
-BasicState* MyMemento::GetState(MyShape& _ShapeTo)
+BasicState* MyMemento::GetState(MyShape* _ShapeTo)
 {
-	Circle* c = dynamic_cast<Circle*>(&_ShapeTo);
+	Circle* c = dynamic_cast<Circle*>(_ShapeTo);
 	if (c != nullptr)return &CircleState(c->getPosition(), c->getFillColor(), c->getRadius());
-	Rectangle* r = dynamic_cast<Rectangle*>(&_ShapeTo);
+	Rectangle* r = dynamic_cast<Rectangle*>(_ShapeTo);
 	if (r != nullptr)return &RectState(r->getPosition(), r->getFillColor(), r->getSize());
 }
 BasicState* MyMemento::GetState()
 {
 	return this->State;
 }
-void MyMemento::SetState(MyShape& _ShapeTo)
+void MyMemento::SetState(MyShape* _ShapeTo)
 {
 	this->State = GetState(_ShapeTo);
 }

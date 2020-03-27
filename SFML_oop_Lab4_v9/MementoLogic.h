@@ -8,9 +8,9 @@ class MyMemento
 private:
 	BasicState* State;
 public:
-	BasicState* GetState(MyShape&);
+	BasicState* GetState(MyShape*);
 	BasicState* GetState();
-	void SetState(MyShape&);
+	void SetState(MyShape*);
 	MyMemento(BasicState*);
 	MyMemento();
 	std::string ToString();
